@@ -1,8 +1,8 @@
-import { searchCountries } from '../api/search-countries';
-import { DEBOUNCE_DELAY_MS } from '../constants/constants';
-import { HttpError } from '../errors/http-error';
-import type { SearchState } from '../types/search-state';
-import { debounce } from '../utils/debounce';
+import { searchCountries } from '../api/search-countries.js';
+import { DEBOUNCE_DELAY_MS } from '../constants/constants.js';
+import { HttpError } from '../errors/http-error.js';
+import type { SearchState } from '../types/search-state.js';
+import { debounce } from '../utils/debounce.js';
 
 export interface SearchController {
     search: (query: string) => void;
