@@ -13,8 +13,8 @@ export interface Country {
     capital: string;
     region: string;
     subregion: string;
-    population: number;
-    area: number;
+    population: number | null;
+    area: number | null;
     borders: string[];
     languages: CountryLanguage[];
     currencies: CountryCurrency[];

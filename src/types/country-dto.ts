@@ -23,8 +23,8 @@ export interface CountryDTO {
     capital?: string;
     region?: string;
     subregion?: string;
-    population: number;
-    area: number;
+    population?: number;
+    area?: number;
     borders?: string[];
     languages?: LanguageDTO[];
     currencies?: CurrencyDTO[];

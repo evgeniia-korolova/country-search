@@ -39,6 +39,10 @@ const mapFlag = (flags?: CountryFlagsDTO): string => {
     return flags?.svg || flags?.png || MISSING_DATA;
 };
 
+const mapNumber = (value?: number): number | null => {
+    return typeof value === 'number' && Number.isFinite(value) ? value : null;
+};
+
 export function mapCountryResponse(raw: unknown): Country[] {
     if (!Array.isArray(raw)) {
         throw new Error('Invalid country response: expected an array');
@@ -49,8 +53,8 @@ export function mapCountryResponse(raw: unknown): Country[] {
         capital: item.capital || MISSING_DATA,
         region: item.region || MISSING_DATA,
         subregion: item.subregion || MISSING_DATA,
-        population: item.population,
-        area: item.area,
+        population: mapNumber(item.population),
+        area: mapNumber(item.area),
         borders: mapBorders(item.borders),
         languages: mapLanguages(item.languages),
         currencies: mapCurrencies(item.currencies),
