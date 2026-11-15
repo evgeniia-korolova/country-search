@@ -63,14 +63,23 @@ export function renderCountryDetails(country: Country, onClose: () => void): HTM
                   .join(', ')
             : 'Data is currently missing';
     const bordersText = country.borders.join(', ');
-    const areaText = `${country.area.toLocaleString('en-US')} km²`;
+
+    const populationText =
+        country.population !== null
+            ? country.population.toLocaleString('en-US')
+            : 'Data is currently missing';
+
+    const areaText =
+        country.area !== null
+            ? `${country.area.toLocaleString('en-US')} km²`
+            : 'Data is currently missing';
 
     const detailsList = createElement(
         'dl',
         { className: 'details-list' },
         createDetailItem('Capital', country.capital),
         createDetailItem('Region', `${country.region} (${country.subregion})`),
-        createDetailItem('Population', country.population.toLocaleString('en-US')),
+        createDetailItem('Population', populationText),
         createDetailItem('Area', areaText),
         createDetailItem('Borders', bordersText),
         createDetailItem('Languages', languagesText),

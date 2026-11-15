@@ -34,12 +34,17 @@ export function renderCountryCard(
         textContent: country.name,
     });
 
+    const populationText =
+        country.population !== null
+            ? country.population.toLocaleString('en-US')
+            : 'Data is currently missing';
+
     const infoList = createElement(
         'div',
         { className: 'country-info' },
         createInfoRow('Capital', country.capital),
         createInfoRow('Region', country.region),
-        createInfoRow('Population', country.population.toLocaleString('en-US'))
+        createInfoRow('Population', populationText)
     );
 
     const body = createElement('div', { className: 'country-card-body' }, title, infoList);
