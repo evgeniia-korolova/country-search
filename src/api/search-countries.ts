@@ -1,7 +1,7 @@
-import { API_BASE_URL, REQUEST_TIMEOUT_MS } from '../constants/constants';
-import { HttpError } from '../errors/http-error';
+import { API_BASE_URL, REQUEST_TIMEOUT_MS } from '../constants/constants.js';
+import { HttpError } from '../errors/http-error.js';
 import type { Country } from '../types/country';
-import { mapCountryResponse } from '../utils/map-country-response';
+import { mapCountryResponse } from '../utils/map-country-response.js';
 
 export async function searchCountries(
     query: string,

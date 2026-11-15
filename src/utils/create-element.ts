@@ -1,4 +1,4 @@
-import type { ElementOptions } from '../types/element-options';
+import type { ElementOptions } from '../types/element-options.ts';
 
 export function createElement<K extends keyof HTMLElementTagNameMap>(
     tag: K,
