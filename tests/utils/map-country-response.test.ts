@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mapCountryResponse } from '../../src/utils/map-response';
+import { mapCountryResponse } from '../../src/utils/map-country-response';
 
 const raw = [
     {
