@@ -72,7 +72,10 @@ const createRawCountry = (languages?: unknown) => ({
             symbol: '₴',
         },
     ],
-    flag: '🇺🇦',
+    flags: {
+        svg: 'https://example.com',
+        png: 'https://example.com',
+    },
     ...(languages === undefined ? {} : { languages }),
 });
 
@@ -204,6 +207,34 @@ describe('mapCountryResponse', () => {
             ]);
 
             expect(mappedCountry[0].subregion).toBe(missingData);
+        });
+
+        it('should map population correctly', () => {
+            const mappedCountry = mapCountryResponse([createRawCountry(undefined)]);
+
+            expect(mappedCountry[0].population).toBe(37000000);
+        });
+
+        it('should return null if population is missing', () => {
+            const mappedCountry = mapCountryResponse([
+                { ...createRawCountry(undefined), population: undefined },
+            ]);
+
+            expect(mappedCountry[0].population).toBeNull();
+        });
+
+        it('should map area correctly', () => {
+            const mappedCountry = mapCountryResponse([createRawCountry(undefined)]);
+
+            expect(mappedCountry[0].area).toBe(603500);
+        });
+
+        it('should return null if area is missing', () => {
+            const mappedCountry = mapCountryResponse([
+                { ...createRawCountry(undefined), area: undefined },
+            ]);
+
+            expect(mappedCountry[0].area).toBeNull();
         });
     });
 
