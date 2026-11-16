@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { countrySearchController } from '../../src/controllers/country-search-controller';
 import { SearchState } from '../../src/types/search-state';
 import { DEBOUNCE_DELAY_MS } from '../../src/constants/constants';
+import { cachedSearchCountries } from '../../src/api/cached-search-countries';
 
 const createMockRawCountry = (name: string) => ({
     name,
@@ -27,6 +28,7 @@ describe('race condition handling in countrySearchController', () => {
         vi.stubGlobal('fetch', fetchMock);
         onStateChange = vi.fn();
         fetchMock.mockReset();
+        cachedSearchCountries.clear();
     });
 
     afterEach(() => {

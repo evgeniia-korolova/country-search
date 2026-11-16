@@ -1,4 +1,4 @@
-import { searchCountries } from '../api/search-countries.js';
+import { cachedSearchCountries } from '../api/cached-search-countries.js';
 import { DEBOUNCE_DELAY_MS } from '../constants/constants.js';
 import { HttpError } from '../errors/http-error.js';
 import type { SearchState } from '../types/search-state.js';
@@ -42,7 +42,7 @@ export function countrySearchController(
         onStateChange({ status: 'loading' });
 
         try {
-            const countries = await searchCountries(trimmedQuery, controller.signal);
+            const countries = await cachedSearchCountries(trimmedQuery, controller.signal);
 
             if (controller.signal.aborted) {
                 return;

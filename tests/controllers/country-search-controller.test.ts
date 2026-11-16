@@ -5,6 +5,7 @@ import { searchCountries } from '../../src/api/search-countries';
 import { SearchState } from '../../src/types/search-state';
 import { DEBOUNCE_DELAY_MS } from '../../src/constants/constants';
 import { HttpError } from '../../src/errors/http-error';
+import { cachedSearchCountries } from '../../src/api/cached-search-countries';
 
 vi.mock('../../src/api/search-countries', () => ({
     searchCountries: vi.fn(),
@@ -33,6 +34,7 @@ describe('countrySearchController', () => {
         vi.useFakeTimers();
         onStateChange = vi.fn();
         searchCountriesMock.mockReset();
+        cachedSearchCountries.clear();
     });
 
     afterEach(() => {
