@@ -1,6 +1,11 @@
 import { createElement } from '../utils/create-element.js';
 
-export function renderSearchInput(onInput: (query: string) => void): HTMLElement {
+export interface SearchInputComponent {
+    element: HTMLElement;
+    setValue: (value: string) => void;
+}
+
+export function renderSearchInput(onInput: (query: string) => void): SearchInputComponent {
     const label = createElement('label', {
         className: 'visually-hidden',
         textContent: 'Search for a country',
@@ -36,5 +41,10 @@ export function renderSearchInput(onInput: (query: string) => void): HTMLElement
         event.preventDefault();
     });
 
-    return form;
+    return {
+        element: form,
+        setValue: (value: string) => {
+            input.value = value;
+        },
+    };
 }

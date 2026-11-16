@@ -197,3 +197,67 @@ body {
     outline: 2px solid var(--color-text);
     outline-offset: 2px;
 }
+
+.history-container:not(:empty) {
+    margin-bottom: 1.5rem;
+}
+
+.search-history {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.history-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-right: 0.25rem;
+}
+
+.history-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.history-chip {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.history-chip:hover,
+.history-chip:focus-visible {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface-hover);
+    outline: none;
+}
+
+.history-clear-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 0.825rem;
+    font-family: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    margin-left: 0.25rem;
+}
+
+.history-clear-btn:hover,
+.history-clear-btn:focus-visible {
+    color: var(--color-text);
+    outline: none;
+}
