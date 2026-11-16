@@ -43,7 +43,7 @@ jobs:
                   cp index.html _site/
                   cp -r dist _site/
                   cp -r src/styles _site/src/
-                  if [ -d "assets" ]; then cp -r assets _site/; fi
+                  if [ -d "src/assets" ]; then cp -r src/assets _site/src/; fi
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
